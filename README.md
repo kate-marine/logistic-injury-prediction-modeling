@@ -14,3 +14,8 @@ The motivation for this question comes from Chang et al.'s "Football Analytics: 
 This matters because injury prediction in elite sport is not a pure prediction problem. It is a decision-support problem. When a model identifies a player as high-risk, the question that immediately follows from coaches and medical staff is why. Should training load be reduced? Is recovery the issue? Is the schedule the problem? An XGBoost feature importance plot or a SHAP value can attempt at answers, but a logistic regression coefficient, expressed as an odds ratio, can give one directly. (For example an additional match in the prior seven days raises injury odds by approximately 23%). These are numbers a performance scientist can integrate into workload-management decisions whereas a black-box risk score is not.
 
 Given this, the goal of this paper is to test whether a simpler probabilistic model can approach the predictive power of more computationally intensive algorithms while preserving the interpretability that applied practitioners require.
+
+
+## Methods overview
+
+I generate a dataset of 8,000 match-level observations (400 players × 20 matches) modeled after EPL workload, context, and GPS dynamics, and fit a sequence of four logistic regression models of increasing specification: a workload-only baseline (A), a model adding player and match context (B), a full model adding GPS-derived intensity metrics (C), and a nonlinear extension (C′) that adds squared and interaction terms designed to capture fatigue amplification under congested schedules. I evaluate these models against Chang et al.'s reported benchmarks using AUC and average precision under group-level cross-validation.
