@@ -1,7 +1,5 @@
 # logistic-injury-prediction-modeling
 
-Note: this is part of a paper I wrote "Using Logistic Modeling to Improve Player Injury Predictions in the English Premier League" which started out as my Math50 project last term
-
 
 ## Background and Motivation
 
